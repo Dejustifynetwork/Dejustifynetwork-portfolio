@@ -1,0 +1,83 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "uploads"
+public_folder: "/uploads"
+
+collections:
+
+  - name: "settings"
+    label: "Site Settings"
+    files:
+      - name: "general"
+        label: "General Settings"
+        file: "content/settings/general.json"
+        fields:
+          - { label: "Site Title", name: "site_title", widget: "string" }
+          - { label: "Tagline", name: "tagline", widget: "string" }
+          - { label: "Your Name", name: "owner_name", widget: "string" }
+          - { label: "WhatsApp Number", name: "whatsapp", widget: "string", hint: "Include country code e.g. 2347077172508" }
+          - { label: "Phone Number", name: "phone", widget: "string" }
+          - { label: "Location", name: "location", widget: "string" }
+          - { label: "Hero Description", name: "hero_desc", widget: "text" }
+          - { label: "About Paragraph 1", name: "about_p1", widget: "text" }
+          - { label: "About Paragraph 2", name: "about_p2", widget: "text" }
+          - { label: "About Paragraph 3", name: "about_p3", widget: "text" }
+
+  - name: "testimonials"
+    label: "Testimonials"
+    folder: "content/testimonials"
+    create: true
+    slug: "{{slug}}"
+    identifier_field: "name"
+    fields:
+      - { label: "Client Name", name: "name", widget: "string" }
+      - { label: "Client Role", name: "role", widget: "string" }
+      - { label: "Initials", name: "initials", widget: "string", hint: "2 letters only e.g. AK" }
+      - { label: "Star Rating", name: "stars", widget: "number", min: 1, max: 5, default: 5 }
+      - { label: "Testimonial", name: "text", widget: "text" }
+      - { label: "Active", name: "active", widget: "boolean", default: true }
+
+  - name: "articles"
+    label: "Article Samples"
+    folder: "content/articles"
+    create: true
+    slug: "{{slug}}"
+    identifier_field: "title"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Niche", name: "niche", widget: "string", hint: "e.g. Pet Care, Tech, Travel" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "File", name: "file", widget: "file" }
+      - { label: "Active", name: "active", widget: "boolean", default: true }
+
+  - name: "cv_samples"
+    label: "CV Portfolio"
+    folder: "content/cvs"
+    create: true
+    slug: "{{slug}}"
+    identifier_field: "name"
+    fields:
+      - { label: "Client Name", name: "name", widget: "string" }
+      - { label: "Job Title", name: "role", widget: "string" }
+      - { label: "Initials", name: "initials", widget: "string", hint: "2 letters only" }
+      - { label: "Education", name: "education", widget: "string" }
+      - { label: "Work Summary", name: "work", widget: "string" }
+      - { label: "Key Skills", name: "skills", widget: "string" }
+      - { label: "CV File", name: "file", widget: "file" }
+      - { label: "Active", name: "active", widget: "boolean", default: true }
+
+  - name: "services"
+    label: "Services"
+    folder: "content/services"
+    create: true
+    slug: "{{slug}}"
+    identifier_field: "title"
+    fields:
+      - { label: "Service Title", name: "title", widget: "string" }
+      - { label: "Icon Emoji", name: "icon", widget: "string" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Starting Price", name: "price", widget: "string" }
+      - { label: "Delivery Time", name: "delivery", widget: "string" }
+      - { label: "Active", name: "active", widget: "boolean", default: true }
